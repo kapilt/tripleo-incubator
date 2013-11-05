@@ -33,6 +33,7 @@ INCUBATOR_SCRIPTS = os.path.dirname(sys.argv[0])
 class RunError(RuntimeError):
     pass
 
+
 class Run(object):
     noop = False
 
@@ -211,8 +212,9 @@ def main():
                         help='Prefix for image names')
     parser.add_argument('--noop', '-n', default=False, action='store_true',
                         help='Just print actions instead of executing them.')
-    parser.add_argument('--use-existing', '-u', default=False, action='store_true',
-                        help='Use any existing image files or images in glance')
+    parser.add_argument(
+        '--use-existing', '-u', default=False, action='store_true',
+        help='Use any existing image files or images in glance')
     parser.add_argument('--skip-heat', default=False, action='store_true',
                         help='Do not try to run heat')
     parser.add_argument('--kernel', nargs='?',
